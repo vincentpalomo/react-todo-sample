@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if (storedTodos) setTodos(storedTodos)
+    if (storedTodos) setTodos(prevTodos => [...prevTodos, ...storedTodos])
   }, [])
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
         <input ref={todoNameRef} type="text" />
         <button onClick={handleAddTodo}>Add Todo</button>
         <button onClick={handleClearTodos}>Clear Complete</button>
-        <div>{todos.filter(todo => !todo.complete).length} left to do🙂</div>
+        <div>{todos.filter(todo => !todo.complete).length} left to do 🙂</div>
     </>
   )
 }
