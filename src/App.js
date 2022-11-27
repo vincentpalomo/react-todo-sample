@@ -38,12 +38,9 @@ function App() {
     setTodos(newTodos)
   }
 
-
   return (
     <>
-      <div style={{
-        background: 'orange'
-      }}>
+      <div className='todolist'>
         <TodoList todos={todos} toggleTodo={toggleTodo} />
         <input ref={todoNameRef} type="text" />
         <button onClick={handleAddTodo}>Add Todo</button>
